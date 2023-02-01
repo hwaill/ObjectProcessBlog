@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Circuit Diagram, cdlibrary.dll 4.0.0.0 -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" width="400" height="160" xmlns="http://www.w3.org/2000/svg">
+	<line x1="180" y1="110" x2="220" y2="110" style="stroke:rgb(43, 45, 66);stroke-linecap:square;stroke-width:2" />
+	<line x1="220" y1="110" x2="220" y2="122" style="stroke:rgb(43, 45, 66);stroke-linecap:square;stroke-width:2" />
+	<path d="M 212,122 L 228,122 L 220,130 L 212,122" style="fill-opacity:0;fill:rgb(43, 45, 66);stroke:rgb(43, 45, 66);stroke-linecap:square;stroke-width:2" />
+	<line x1="130" y1="110" x2="150" y2="110" style="stroke:rgb(43, 45, 66);stroke-linecap:square;stroke-width:2" />
+	<line x1="130" y1="100" x2="130" y2="110" style="stroke:rgb(43, 45, 66);stroke-linecap:square;stroke-width:2" />
+	<line x1="130" y1="60" x2="130" y2="100" style="stroke:rgb(43, 45, 66);stroke-linecap:square;stroke-width:2" />
+	<line x1="130" y1="60" x2="160" y2="60" style="stroke:rgb(43, 45, 66);stroke-linecap:square;stroke-width:2" />
+	<line x1="90" y1="60" x2="130" y2="60" style="stroke:rgb(43, 45, 66);stroke-linecap:square;stroke-width:2" />
+	<line x1="150" y1="110" x2="151" y2="110" style="stroke:rgb(43, 45, 66);stroke-linecap:square;stroke-width:2" />
+	<line x1="179" y1="110" x2="180" y2="110" style="stroke:rgb(43, 45, 66);stroke-linecap:square;stroke-width:2" />
+	<ellipse cx="154" cy="110" rx="3" ry="3" style="fill-opacity:0;fill:rgb(43, 45, 66);stroke:rgb(43, 45, 66);stroke-width:2" />
+	<ellipse cx="176" cy="110" rx="3" ry="3" style="fill-opacity:0;fill:rgb(43, 45, 66);stroke:rgb(43, 45, 66);stroke-width:2" />
+	<line x1="153" y1="102" x2="177" y2="102" style="stroke:rgb(43, 45, 66);stroke-linecap:square;stroke-width:2" />
+	<line x1="159" y1="96" x2="171" y2="96" style="stroke:rgb(43, 45, 66);stroke-linecap:square;stroke-width:2" />
+	<line x1="165" y1="96" x2="165" y2="102" style="stroke:rgb(43, 45, 66);stroke-linecap:square;stroke-width:2" />
+	<line x1="330" y1="60" x2="370" y2="60" style="stroke:rgb(43, 45, 66);stroke-linecap:square;stroke-width:2" />
+	<line x1="260" y1="60" x2="300" y2="60" style="stroke:rgb(43, 45, 66);stroke-linecap:square;stroke-width:2" />
+	<line x1="160" y1="60" x2="200" y2="60" style="stroke:rgb(43, 45, 66);stroke-linecap:square;stroke-width:2" />
+	<text x="75" y="60" style="font-family:Arial;font-size:12px;text-anchor:end" dominant-baseline="middle" transform="rotate(0, 75, 60)">+3.3V</text>
+	<line x1="80" y1="60" x2="90" y2="60" style="stroke:rgb(43, 45, 66);stroke-linecap:square;stroke-width:2" />
+	<line x1="370" y1="60" x2="370" y2="72" style="stroke:rgb(43, 45, 66);stroke-linecap:square;stroke-width:2" />
+	<path d="M 362,72 L 378,72 L 370,80 L 362,72" style="fill-opacity:0;fill:rgb(43, 45, 66);stroke:rgb(43, 45, 66);stroke-linecap:square;stroke-width:2" />
+	<line x1="300" y1="60" x2="330" y2="60" style="stroke:rgb(43, 45, 66);stroke-linecap:square;stroke-width:2" />
+	<path d="M 322,60 M 322,52 L 322,68 M 322,60 L 307,68 L 307,52 L 322,60" style="fill-opacity:0;fill:rgb(43, 45, 66);stroke:rgb(43, 45, 66);stroke-linecap:square;stroke-width:2" />
+	<path d="M 320,60 M 318,49 L 326,41 M 327,40 L 323,42 L 325,44 L 327,40 L 323,42" style="fill-opacity:0;fill:rgb(43, 45, 66);stroke:rgb(43, 45, 66);stroke-linecap:square;stroke-width:2" />
+	<path d="M 320,60 M 324,56 L 332,48 M 333,47 L 329,49 L 331,51 L 333,47 L 329,49" style="fill-opacity:0;fill:rgb(43, 45, 66);stroke:rgb(43, 45, 66);stroke-linecap:square;stroke-width:2" />
+	<line x1="200" y1="60" x2="210" y2="60" style="stroke:rgb(43, 45, 66);stroke-linecap:square;stroke-width:2" />
+	<line x1="250" y1="60" x2="260" y2="60" style="stroke:rgb(43, 45, 66);stroke-linecap:square;stroke-width:2" />
+	<path d="M 210,60 L 212,60 L 215,53 L 221,67 L 227,53 L 233,67 L 239,53 L 245,67 L 248,60 L 250,60" style="fill-opacity:0;fill:rgb(43, 45, 66);stroke:rgb(43, 45, 66);stroke-linecap:square;stroke-width:2" />
+	<text x="230" y="46" style="font-family:Arial;font-size:11px;text-anchor:middle" dominant-baseline="baseline" transform="rotate(0, 230, 46)">100 Ω</text>
+	<ellipse cx="130" cy="60" rx="2" ry="2" style="fill-opacity:1;fill:rgb(43, 45, 66);stroke:rgb(43, 45, 66);stroke-width:2" />
+</svg>

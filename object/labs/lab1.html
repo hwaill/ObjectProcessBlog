@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="../assets/js/jquery.min.js"></script>
+	<script src="../assets/js/mathFormat.js"></script>
+	<link rel="stylesheet" href="../assets/style/style.css">
+	<title>Henry Waill - Object - Lab 1</title>
+</head>
+<body>
+	<div class="mainBackground"></div>
+	<div class="postContent">
+		<h1 class="postTitle">Lab 1: Simple Circuits</h1>
+		<h2 class="postSubtitle">Henry Waill - 1/31/2023</h2>
+		<h3 class="postHeader">Description</h3>
+		<p class="postText">This lab served as an introduction to basic circuit construction, as well as an opportunity to begin to familiarize ourselves with the electronics kit that we purchased for the class. This lab, specifically, involved lighting an LED and then controlling it with a pushbutton.</p>
+		<h3 class="postHeader">Materials</h3>
+		<p class="postText">All of the materials required to complete this lab, with the exception of the multimeter, were supplied in the <em>ELEGOO Arduino Uno Starter Kit</em>.</p>
+		<ul class="postText">
+			<li>Breadboard</li>
+			<li>Power Supply Module</li>
+			<li>9V Battery and Snap-on Connector</li>
+			<li>Breadboard Jumper Wires</li>
+			<li>SPST Pushbutton</li>
+			<li>Resistors</li>
+			<li>An LED</li>
+			<li>Multimeter</li>
+		</ul>
+		<h3 class="postHeader">Part 1: Setting Up Power</h3>
+		<p class="postText">The first step in setting up this lab was to supply our circuits with power. Different circuits for different applications will have different power requirements, but for our purposes, a 9 volt battery should suffice. In fact, we will rarely need more than 3.3V or 5V. In the starter kits we have, we are given a pretty nifty device called a <em>Power Supply Module</em>. This module not only regulates the voltage to both 3.3V and 5V, but also fits onto a standard breadboard and powers the rails that run along the sides. This makes wiring a little cleaner. The Power Supply Module is shown correctly installed in the image below:</p>
+		<img class="postImage" src="https://imgur.com/dP77NAQ.jpg" alt="The Power Supply Module installed in the breadboard.">
+		<p class="postText">The 9V batter is connected to the Power Supply Module by way of a <em>barrel jack</em> that can be seen on the bottom left of the image. On the right side of the module, note that the "+" and "-" icons line up with the red and blue lines on the breadboard, respectively. Finally, notice the white shunts directly to the left of these icons. These shunts allow control over whether the Power Supply Module is supplying 3.3V or 5V to each individual side of the breadboard. The next images show voltage readings from each of the breadboard power rails powered by the Power Supply Module.</p>
+		<img class="postImage halfWidth" src="https://imgur.com/LP6P6ia.jpg" alt="Multimeter reads 3.3V.">
+		<img class="postImage halfWidth right" src="https://imgur.com/iZRU6ku.jpg" alt="Multimeter reads 5V.">
+		<h3 class="postHeader">Part 2: (NOT) Blowing Up an LED</h3>
+		<p class="postText">The next goal of the lab is to light up an LED, but it is not as simple as just connecting it directly to power. LEDs, like many electronics components, have specific conditions under which they can operate. In this case, we have to be careful of how much current an LED can tolerate. Given that a typical LED can operate in the range of 20-35mA, we can calculate what resistance we need to add to the circuit using <em>Ohm's Law</em>:</p>
+		<div class="postMath">
+			<div class="postMathHeader">WARNING: MATH!</div>
+			<div class="postMathContainer">
+				<img class="postMathFormula" src="../assets/img/lab1Formula1.svg" alt="">
+				<img class="postMathFormula" src="../assets/img/lab1Formula2.svg" alt="">
+			</div>
+		</div>
+		<p class="postText">We can see that we will need a resistance value between 95Ω and 165Ω in order to stay within the acceptable range of current for the LED. A 100Ω resistor will be used for the remainder of the lab. In theory, we could recreate these circuits with a 5V source if we calculated the required resistance for the new voltage:</p>
+		<div class="postMath">
+			<div class="postMathHeader">WARNING: MATH!</div>
+			<div class="postMathContainer">
+				<img class="postMathFormula" src="../assets/img/lab1Formula3.svg" alt="">
+				<img class="postMathFormula" src="../assets/img/lab1Formula4.svg" alt="">
+			</div>
+		</div>
+		<p class="postText">So now that we have determined the resistor that we want to use, we can wire everything in series to light the LED safely. One thing to note is that the anode of the LED will have a longer leg and should be connected towards the positive rail of the breadboard. Here's a schematic of the circuit:</p>
+		<div class="postSchematic">
+			<div class="postSchematicHeader">CIRCUIT DIAGRAM</div>
+			<div class="postSchematicContainer">
+				<img class="postSchematicImage" src="../assets/img/lab1Circuit1.svg" alt="">
+			</div>
+		</div>
+		<p class="postText">And here's an image of the circuit constructed:</p>
+		<img class="postImage" src="https://imgur.com/p6QFBI1.jpg" alt="">
+		<h3 class="postHeader">Part 3: Switching the LED</h3>
+		<p class="postText">Adding a switch or a button to our existing circuit is very simple and just involves placing the button in series with the LED and resistor. Pressing the button will momentarily close the circuit and allow current to flow.</p>
+		<div class="postSchematic">
+			<div class="postSchematicHeader">CIRCUIT DIAGRAM</div>
+			<div class="postSchematicContainer">
+				<img class="postSchematicImage" src="../assets/img/lab1Circuit2.svg" alt="">
+			</div>
+		</div>
+		<p class="postText">The following photo and video show the circuit set up and working:</p>
+		<img class="postImage" src="https://imgur.com/TlzWkTh.jpg" alt="">
+		<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/794661664?h=457e3cac18&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="IMG_5508"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+		<h3 class="postHeader">Extra Volt</h3>
+		<p class="postText">The Extra Volt this week asks us to create a circuit where the button's role is reversed. The LED should light when the button is <em>not</em> pressed, and should turn off when the button <em>is</em> pressed. This circuit demonstrates the logical NOT operation.</p>
+		<p class="postText">The obvious issue is that pressing the button closes that connection in the circuit. The way to overcome this issue is to use this button to create a path of least resistance to ground. This requires the button to be placed in parallel to the Part 2 circuit instead of in series as we did in Part 3. When the button is not pressed, the circuit acts as it did in Part 2 and the LED remains lit. When the button pressed, a path with nearly zero resistance is created. Because the resistance of our 100Ω is essentially infinitely times more than the resistance of the new path, almost all of the current is diverted away from that LED and it turns off. Here's a schematic, image and video to demonstrate this concept.</p>
+		<div class="postSchematic">
+			<div class="postSchematicHeader">CIRCUIT DIAGRAM</div>
+			<div class="postSchematicContainer">
+				<img class="postSchematicImage" src="../assets/img/lab1Circuit3.svg" alt="">
+			</div>
+		</div>
+		<img class="postImage" src="https://imgur.com/T6Eay2G.jpg" alt="">
+		<div style="padding:75% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/794661656?h=b4effb2015&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="IMG_5510.MOV"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+	</div>
+</body>
+</html>
