@@ -151,6 +151,10 @@ nav {
 	font-weight: 400;
 }
 
+.videoHolder {
+	text-align: center;
+}
+
 .postImage {
 	width: 100%;
 	box-sizing: border-box;
