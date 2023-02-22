@@ -165,8 +165,18 @@ nav {
 	display: inline-block;
 }
 
+.thirdWidth {
+	width: 32%;
+	display: inline-block;
+}
+
 .right {
 	float: right;
+}
+
+.center {
+	position: relative;
+	left: 1.4%;
 }
 
 .postMath {
