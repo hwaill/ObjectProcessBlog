@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../../assets/js/jquery.min.js"></script>
+    <script src="../../assets/js/mathFormat.js"></script>
+    <link rel="stylesheet" href="../../assets/style/style.css" />
+    <title>Henry Waill - Object - Lab 4</title>
+  </head>
+  <body>
+    <div class="mainBackground"></div>
+    <div class="postContent">
+      <h1 class="postTitle">Lab 4: Whack-A-MoLED</h1>
+      <h2 class="postSubtitle">Henry Waill - 3/1/2023</h2>
+      <h3 class="postHeader">Description</h3>
+      <p class="postText">This lab served as an introduction to more advanced Input/Output circuits with our Arduino. Instead of using binary, or digital, inputs and outputs, we upgraded to using analog inputs. Instead of just a low or high signal, the analog pins on our Arduinos can detect the incoming voltage with more resolution.</p>
+      <h3 class="postHeader">Materials</h3>
+      <p class="postText">All of the materials required to complete this lab, with the exception of the multimeter, were supplied in the <em>ELEGOO Arduino Uno Starter Kit</em>.</p>
+      <ul class="postText">
+        <li>Arduino (Elegoo) Uno R3 Controller Board</li>
+        <li>USB Cable</li>
+        <li>Breadboard Jumper Wires</li>
+        <li>Resistors</li>
+        <li>LEDs</li>
+        <li>Multimeter</li>
+        <li>Potentiometer (10k)</li>
+        <li>Joystick Module</li>
+      </ul>
+      <h3 class="postHeader">Part 1: Using a Potentiometer</h3>
+      <p class="postText">To begin this lab, we started with the basics of dynamically controlling voltage. As we know, the voltage in a circuit can easily be manipulated with the use of resistors. Adding a resistor in series with a 5V power supply will lower the voltage by a certain amount. Because we want to be able to detect changing voltage in this lab, we will use the most basic of <em>variable resistors</em>, the potentiometer. An image of a potentiometer connected to the Arduino is below, as well as a circuit diagram.</p>
+      <img class="postImage" src="https://imgur.com/lVJ2OPP.jpg" alt="" />
+      <div class="postSchematic">
+        <div class="postSchematicHeader">CIRCUIT DIAGRAM</div>
+        <div class="postSchematicContainer">
+          <img class="postSchematicImage" src="../../assets/img/lab4Circuit1.svg" alt="" />
+        </div>
+      </div>
+      <p class="postText">In this circuit, the potentiometer's middle pin is hooked up to our Analog 0 (A0) pin on the arduino, and we can read the voltage using the <em>analogRead()</em> function. The function returns a value between 0 and 1023 (inclusive,) which corresponds to 0-5V. The code will look something like this:</p>
+      <img class="postImage" src="../../assets/img/lab4Code1.png" alt="">
+      <p class="postText">And here's a video of the circuit in action:</p>
+      <div class="videoHolder"><iframe width="560" height="315" src="https://www.youtube.com/embed/5isZX2aS_Fc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <h3 class="postHeader">Part 2: Light 'em Up With a Potentiometer</h3>
+      <p class="postText">The next section let's us visualize the reading from the potentiometer with a line of LEDs. We want to turn on a number of the LEDs that corresponds with the voltage reading on our A0 pin. <strong>I forgot to take a still image of the circuit connected, but the video below of the working circuit shows the configuration</strong>. As I mentioned above, the <em>analogRead()</em> function returns a value in the range of 0 to 1023, but we want to light up a varying number of 5 LEDs. <strong>We want to use the <em>map()</em> function to map values in the range of 0-1023 to values in the range of 0-5</strong>.</p>
+      <p class="postText">I wrote a program that does this on a loop, so the number of LEDs lit is constantly responding to changes in the potentiometer's state. Here's the code I used to do that:</p>
+      <img src="../../assets/img/lab4Code2.png" alt="" class="postImage">
+      <p class="postText">And here's a video of the circuit working:</p>
+      <div class="videoHolder"><iframe width="560" height="315" src="https://www.youtube.com/embed/0eC3yr53kiQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <h3 class="postHeader">Part 3: Joystick for Arduino</h3>
+      <p class="postText">The joystick module included with our kit is made up, fundamentally, of two potentiometers that track the movement of the stick in the x and y axes. This joystick also has a button that allows for the user to press into the stick; however, I decided not to wire it up because it was not going to be used in this lab. We will use another pin, A1, to connect the second axis of the joystick. Here's an image of the module wired up:</p>
+      <img src="https://imgur.com/gPTR7Ks.png" alt="" class="postImage">
+      <p class="postText">We then adapted the sketch that printed the values of our single potentiometer in order to accomodate for the second axis of the joystick. Here's the new code:</p>
+      <img src="../../assets/img/lab4Code3.png" alt="" class="postImage">
+      <p class="postText">And here's a video of the sketch in action:</p>
+      <div class="videoHolder"><iframe width="560" height="315" src="https://www.youtube.com/embed/GczE82yIkgA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <p class="postText"><strong>I found that the joystick was returning values around 500-525 in both axes when it was in the neutral position. When the stick was left, the X value was close to 0, right: X near 1023, top: Y near 0, bottom: Y near 1023. The joystick seemed to have a buffer so that the diagonals kept the X and Y values near 0 and 1023 as well.</strong></p>
+      <h3 class="postHeader">Part 4: Light 'em Up With a Joystick</h3>
+      <p class="postText">We want a more visual display of the sketch responding to the joystick inputs, so we arranged the five LEDs in a cross pattern, as shown in the following image:</p>
+      <img src="https://imgur.com/GeqMLuq.png" alt="" class="postImage">
+      <p class="postText">Here's the new code that has the LEDs light up with the joystick's position:</p>
+      <img src="../../assets/img/lab4Code4.png" alt="" class="postImage">
+      <p class="postText">And here's a video of the circuit working. My joystick seemed to have some inconsistencies, so sometimes there was no overlap in lit LEDs in the diagonal orientations.</p>
+      <div class="videoHolder"><iframe width="560" height="315" src="https://www.youtube.com/embed/W8aKomDjbtw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <h3 class="postHeader">Part 5: Basic LED Whack-A-Mole</h3>
+      <p class="postText">The next section does not require us to change the circuit, just the behavior of the LEDs.This game combines some techniques that we have used in the past, with timing and such. I also took the liberty of making a fancier blinking sequence to start the game. It's a lot, but here's the code I used (gist at the bottom):</p>
+      <img src="../../assets/img/lab4Code5.png" alt="" class="postImage">
+      <p class="postText">And here's a video of the game:</p>
+      <div class="videoHolder"><iframe width="560" height="315" src="https://www.youtube.com/embed/FxLYxZ39j5M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <p class="postText"></p>
+      <p class="postText"></p>
+      <p class="postText"></p>
+      <script src="https://gist.github.com/hwaill/d97a3ec3b83f3fbba96a8e1cd1145fb6.js"></script>
+    </div>
+  </body>
+</html>
