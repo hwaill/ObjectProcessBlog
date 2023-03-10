@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../../assets/js/jquery.min.js"></script>
+    <script src="../../assets/js/mathFormat.js"></script>
+    <link rel="stylesheet" href="../../assets/style/style.css" />
+    <title>Henry Waill - Object - Lab 5</title>
+  </head>
+  <body>
+    <div class="mainBackground"></div>
+    <div class="postContent">
+      <h1 class="postTitle">Lab 5: Revenge of the Synth</h1>
+      <h2 class="postSubtitle">Henry Waill - 3/8/2023</h2>
+      <h3 class="postHeader">Description</h3>
+      <p class="postText">In the last lab, we introduced analog inputs to our Arduino circuits; In this lab we will attempt to employ analog output. The arduino, however, is incapable of generating true analog signals. That would require a dedicated Digital/Analog Converter (DAC). Instead, we can approximate analog signals through a technique called <em>Pulse Width Modulation</em> (PWM.)</p>
+      <h3 class="postHeader">Materials</h3>
+      <p class="postText">All of the materials required to complete this lab, with the exception of the multimeter, were supplied in the <em>ELEGOO Arduino Uno Starter Kit</em>.</p>
+      <ul class="postText">
+        <li>Arduino (Elegoo) Uno R3 Controller Board</li>
+        <li>USB Cable</li>
+        <li>Breadboard Jumper Wires</li>
+        <li>Resistors</li>
+        <li>RGB LED</li>
+        <li>Multimeter</li>
+        <li>Passive Buzzer</li>
+        <li>Joystick Module</li>
+      </ul>
+      <h3 class="postHeader">Part 1: Wiring Up the RGB LED</h3>
+      <p class="postText">To begin this lab, we started by connecting up our RGB LED. This LED has four terminals, which is just because an RGB LED is essentially just 3 LEDs in one housing. Because of this, we can hook it up the same way, with a resistor in series with each of the anodes, and the cathode connected to ground. When choosing the pins to connect to, we must connect to the Arduino's PWM-enabled pins, marked with a tilde, "~." Below is an image of my circuit:</p>
+      <img class="postImage" src="https://imgur.com/sKJSrli.jpg" alt="" />
+      <p class="postText">And here is a schematic of the the circuit: </p>
+      <div class="postSchematic">
+        <div class="postSchematicHeader">CIRCUIT DIAGRAM</div>
+        <div class="postSchematicContainer">
+          <img class="postSchematicImage" src="../../assets/img/lab5Circuit1.svg" alt="" />
+        </div>
+      </div>
+      <p class="postText">To control the brightness of the LEDs, we can use <em>analogWrite()</em> instead of <em>digitalWrite()</em> to use PWM. <em>analogWrite()</em> can set the duty cycle from 0% to 100% with values from 0 to 255. Here's a sketch that successfully cycles the LED through four different colors:</p>
+      <img class="postImage" src="../../assets/img/lab5Code1.png" alt="">
+      <p class="postText">And here are images of the four colors:</p>
+      <img src="https://imgur.com/sKJSrli.jpg" alt="" class="postImage halfWidth">
+      <img src="https://imgur.com/dElsZ2X.jpg" alt="" class="postImage halfWidth right">
+      <img src="https://imgur.com/cAIVAXR.jpg" alt="" class="postImage halfWidth">
+      <img src="https://imgur.com/8UEsAUa.jpg" alt="" class="postImage halfWidth right">
+      <h3 class="postHeader">Part 2: Dynamic Color Changer With Joystick</h3>
+      <p class="postText">Next, we want to write a program that allows the LED colors to respond to user input. This can be easily done by adding the same joystick circuit that we used in the last lab. By mapping the analog signal on the input pins A0 and A1 to the output of two of our LED's we can make a fun color-changing experience. Here's the code I used and a video of the sketch in action:</p>
+      <img src="../../assets/img/lab5Code2.png" alt="" class="postImage">
+      <div class="videoHolder"><iframe width="560" height="315" src="https://www.youtube.com/embed/KBDQ34HdBO4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <h3 class="postHeader">Part 3: Musical Notes with a Passive Buzzer</h3>
+      <p class="postText">The <em>Passive Buzzer</em> is very simple to set up; It can be connected to any of the digital pins, and to ground. It is important that the anode and cathode are connected correctly, or we risk damaging the component. Here is an image of the buzzer installed:</p>
+      <img src="https://imgur.com/LkfboAk.png" alt="" class="postImage">
+      <p class="postText">We then want to test our buzzer by adapting the default <em>Blink</em> sketch to use the buzzer instead of an LED. Instead of using <em>digitalWrite()</em>, we can use <em>tone()</em> and <em>noTone()</em>.</p>
+      <img src="../../assets/img/lab5Code3.png" alt="" class="postImage">
+      <p class="postText">And here's a video of the sketch in action:</p>
+      <div class="videoHolder"><iframe width="560" height="315" src="https://www.youtube.com/embed/yHtv_vqFl40" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <p class="postText">We then created a header file to make accessing musical note frequencies a little easier. Here's a picture of that setup. Note that I opt to use <em>Visual Studio Code</em> as my development environment, instead of the default <em>Arduino IDE</em>.</p>
+      <img src="https://imgur.com/MOjBVVd.png" alt="" class="postImage">
+      <p class="postText">With this new addition, we can more easily make the buzzer play different notes! Here's the same blink example, but with a new note from our <em>pitches.h</em> header file:</p>
+      <img src="../../assets/img/lab5Code4.png" alt="" class="postImage">
+      <div class="videoHolder"><iframe width="560" height="315" src="https://www.youtube.com/embed/2SJSkPHObHE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <h3 class="postHeader">Part 4: Melody from the Buzzer</h3>
+      <p class="postText">We can take these concepts further by creating a melody from individual notes. Here's a rather tedious way to set that up:</p>
+      <img src="../../assets/img/lab5Code5.png" alt="" class="postImage">
+      <p class="postText">This program sets a few constants at the top to help make the rhythms easier to understand and plays notes for specified amounts of time to create this melody (which strays from the original at the end.)</p>
+      <div class="videoHolder"><iframe width="560" height="315" src="https://www.youtube.com/embed/fbkf4zjP1Rc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <p class="postText">We then were tasked with creating our own melody, and the limitations of our original approach became more clear. To change or write melodies, we must write a lot of extra fluff for each note. I decided to streamline that process by storing the melody in a 2-dimensional array and looping through that array to play the melody. This allows me to make changes more quickly. Here's what that looks like with my custom melody, and note the table of notes is built into the code:</p>
+      <img src="../../assets/img/lab5Code7.png" alt="" class="postImage">
+      <div class="videoHolder"><iframe width="560" height="315" src="https://www.youtube.com/embed/3x_OhprdyDI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <h3 class="postHeader">Extra Volt: Music Visualizer</h3>
+      <p class="postText">Making a music visualizer is a simple extension of the code we already have, but it would have been much more tedious if I hadn't streamlined the approach with a <em>for()</em> loop. The way I have things set up, I really only have 2 values to work with, as I did away with the "dotted" attribute of note durations. Because of this, I decided to keep one of the LEDs' colors constant (when on,) and experiment with mapping the different values of note frequency and note length to the brightness of the other two LEDs. Here's the code and videos of the two melodies:</p>
+      <img src="../../assets/img/lab5code8.png" alt="" class="postImage">
+      <div class="videoHolder"><iframe width="560" height="315" src="https://www.youtube.com/embed/iL-aZMFTOUg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="videoHolder"><iframe width="560" height="315" src="https://www.youtube.com/embed/XwoJy9-zD04" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+    </div>
+  </body>
+</html>
