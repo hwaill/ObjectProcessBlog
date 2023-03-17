@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../../assets/js/jquery.min.js"></script>
+    <script src="../../assets/js/mathFormat.js"></script>
+    <link rel="stylesheet" href="../../assets/style/style.css" />
+    <title>Henry Waill - Object - Lab 6</title>
+  </head>
+  <body>
+    <div class="mainBackground"></div>
+    <div class="postContent">
+      <h1 class="postTitle">Lab 6: Just a Motor of Time</h1>
+      <h2 class="postSubtitle">Henry Waill - 3/15/2023</h2>
+      <h3 class="postHeader">Description</h3>
+      <p class="postText">In this lab, we look into controlling two different types of motors, the servo motor and the DC motor. These two motors operate in vastly different ways. Servo motors rely on more of a digital output, while DC motors rely on more of an analog output.</p>
+      <h3 class="postHeader">Materials</h3>
+      <p class="postText">All of the materials required to complete this lab, with the exception of the multimeter, were supplied in the <em>ELEGOO Arduino Uno Starter Kit</em>.</p>
+      <ul class="postText">
+        <li>Arduino (Elegoo) Uno R3 Controller Board</li>
+        <li>USB Cable</li>
+        <li>Breadboard Jumper Wires</li>
+        <li>Power Supply Module</li>
+        <li>Multimeter</li>
+        <li>Servo Motor SG90</li>
+        <li>DC Motor and Fan Blade</li>
+        <li>L293D Integrated Circuit</li>
+        <li>Potentiometer</li>
+        <li>9V Battery with Snap-on Connector</li>
+      </ul>
+      <h3 class="postHeader">Part 0: Setting Up Power</h3>
+      <p class="postText">To start this lab, we revisit an old friend of ours, the Power Supply Module. The current requirements of our motors are both too high for our arduino to supply and are too inconsistent to be handled by the relatively sensitive electronics on the microcontroller. Here's a picture of the Power Supply Module installed in our breadboard:</p>
+      <img class="postImage" src="https://imgur.com/kybgN36.jpg" alt="" />
+      <h3 class="postHeader">Part 1: Wiring the Servo</h3>
+      <p class="postText">The first motor that we will be working with is the <em>Servo Motor</em>. The servo motor can rotate to specific angles. In our case, we can rotate to any angle from 0 degrees to 180 degrees. There are three wires needed to connect our servo to our circuit. One each for 5V and ground, and another signal wire to control the behavior of the servo. The signal wire must be connected to one of the PWM-capable pins on our Arduino, denoted with a "~." The other wires require some special attention as well. While we would love to run the motor off of the 5V pin on our microcontroller, the current demands of our motors can exceed the current ratings of the Arduino's power system. In addition, motors are prone to inconsistencies in the current draw depending on environmental factors. Because of this, we need to run the motor with our Power Supply Module. It's also important to bridge all of the grounds together. The complete circuit is shown below:</p>
+      <img class="postImage" src="https://imgur.com/h2ky5wL.jpg" alt="" />
+      <p class="postText">Controlling the servo from the arduino requires some relatively advanced PWM calculations and timing logic. Luckily for us, we don't have to think about any of that and can use a built-in library, instead. We'll use Arduino's <em>Servo</em> library. Here's what it looks like, successfully installed in VS Code:</p>
+      <img class="postImage" src="https://imgur.com/zgGJV7o.jpg" alt="" />
+      <p class="postText">We can pretty quickly get a servo up and running with this library. Here is some example code and a video of the servo performing a basic sweeping motion:</p>
+      <img src="../../assets/img/lab6code1.png" alt="" class="postImage">
+      <div class="videoHolder"><iframe width="560" height="315" src="https://www.youtube.com/embed/bEJIqcZoEsI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <h3 class="postHeader">Part 2: Controlling the Servo</h3>
+      <p class="postText">To start the next part of the lab, we will add a familiar component to the circuit, the potentiometer. Here's what the new circuit looks like:</p>
+      <img src="https://imgur.com/fM5LOLo.png" alt="" class="postImage">
+      <p class="postText">We then want to use the <em>map()</em> function to change the range of values we are receiving from the analog pin to a range that we can send to the servo. Here's a sketch that allows the potentiometer to control the position of the servo motor:</p>
+      <img src="../../assets/img/lab6Code2.png" alt="" class="postImage">
+      <p class="postText">And here's a video of the sketch in action:</p>
+      <div class="videoHolder"><iframe width="560" height="315" src="https://www.youtube.com/embed/c5AVqHwVYxk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <p class="postText">We can also change the behavior of the circuit so that the potentiometer controls the speed at which our original sweeping sketch sweeps. Here's the new sketch and a video of the new interaction. At this point in the lab, I was struggling with inconsistent breadboard connections, so the motion of the servo will appear choppy. I later changed to a different breadboard that allowed for more consistent performance.</p><img src="../../assets/img/lab6Code4.png" alt="" class="postImage">
+      <div class="videoHolder"><iframe width="560" height="315" src="https://www.youtube.com/embed/ZqWutUbFVvk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <h3 class="postHeader">Part 3: DC Motor and Motor Driver</h3>
+      <p class="postText">DC Motors are easier to get up and running in their most basic state, but are more complicated to truly control. There are two wires connected to the motor, and any voltage difference across the terminals will result in the motor's rotation. Here's an image of the motor connected to our breadboard, and a video of the fan spinning.</p>
+      <img src="https://imgur.com/MftbMfb.png" alt="" class="postImage">
+      <div class="videoHolder"><iframe width="560" height="315" src="https://www.youtube.com/embed/gBgCilnaJCI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <p class="postText">Reversing the polarity of the motor will result in reversing the direction of rotation. The speed of rotation can be controlled using PWM. These are simple concepts, but implementing the combination of these methods on a breadboard is very complicated and involves circuit logic that we have yet to explore. Instead, we will use our first <em>Integrated Circuit</em> (IC.) We will use the L293D IC, which is an example of a <em>motor driver</em>. This little chip is a very compact circuit that can plug directly into our breadboard and is specifically designed the perform the exact tasks we need. Here's a picture of the IC added to our circuit:</p>
+      <img src="https://imgur.com/GiuTt4Q.png" alt="" class="postImage">
+      <p class="postText">This new addition to the circuit allows for us to control the motor's direction and speed using just three output pins. Here's an example sketch that moves the motor in both directions and stops the motor in between:</p>
+      <img src="../../assets/img/lab6code5.png" alt="" class="postImage">
+      <p class="postText">And here's a video of the sketch in action: </p>
+      <div class="videoHolder"><iframe width="560" height="315" src="https://www.youtube.com/embed/_xUMEkfXsmw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <p class="postText">This setup allows us to create more interesting behaviors, like easing the transitions between different speeds. Here's a sketch that implements some of these:</p>
+      <img src="../../assets/img/lab6Code6.png" alt="" class="postImage">
+      <p class="postText">And here's a video of the sketch:</p>
+      <div class="videoHolder"><iframe width="560" height="315" src="https://www.youtube.com/embed/KkuoM4AJHDA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <h3 class="postHeader">Part 4: Table-Top Fan</h3>
+      <p class="postText">To finish up the lab, we will create a circuit that combines the two motor circuits into one. This is as simple as adding them together, and doesn't require any more advanced techniques. Here's how I attached the two motors together to emulate the motion of an oscillating fan:</p>
+      <img src="https://imgur.com/N2MCf4M.jpg" alt="" class="postImage">
+      <p class="postText">And here's an image of the circuit:</p>
+      <img src="https://imgur.com/GiuTt4Q.jpg" alt="" class="postImage">
+      <p class="postText">We are tasked with making the servo oscillate between 0 degrees and 120 degress. The fan will spin at 70% power, which is equivalent to <strong>a PWM value of 179</strong>. The code is actually quite simple:</p>
+      <img src="../../assets/img/lab6Code7.png" alt="" class="postImage">
+      <p class="postText">And here's a video of the fan in action:</p>
+      <div class="videoHolder"><iframe width="560" height="315" src="https://www.youtube.com/embed/Ea0ZK6Vk8g8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+    </div>
+  </body>
+</html>
