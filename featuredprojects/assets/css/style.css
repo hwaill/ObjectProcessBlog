@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,900;1,300&family=Source+Sans+3:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+body {
+	margin: 0;
+	padding: 0;
+  position: relative;
+}
+
+.leftBar {
+  width: 200px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-image: url("../img/featuredProjectsLanding.png");
+  background-position-y: bottom;
+  background-position-x: 17%;
+  background-size: auto 80%;
+  background-repeat: no-repeat;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+  font-family: 'Montserrat';
+  font-kerning: auto;
+  font-weight: 900;
+  font-size: 2.2em;
+  position: absolute;
+  line-height: 95%;
+  top: 1.4em;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.logo2 {
+  letter-spacing: 0.041em;
+}
+
+.thin {
+  font-weight: 400;
+  font-size: 0.8em;
+  letter-spacing: 0.155em;
+  position: relative;
+  top: -0.15em;
+}
+
+.pageContent {
+  position: relative;
+  left: 200px;
+  width: calc(100% - 200px);
+  padding: 3em 5em;
+  min-height: 100vh;
+  background-color:rgb(249, 249, 249);
+  box-sizing: border-box;
+}
+
+#featuredContainer {
+  display: flex;
+  flex-flow: row wrap;
+  row-gap: 3em;
+}
+
+.featuredItemImages {
+  flex-basis:35%;
+}
+
+.featuredItemText {
+  flex-basis: 65%;
+  background: white;
+  box-sizing: border-box;
+  padding: 1em 3em;
+  height: 100%;
+}
+
+#dapImages {
+  background-color: white;
+}
+
+#dapImageHolder {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.dapImg {
+  flex-basis: 50%;
+  aspect-ratio: 1/1;
+  background-size: contain;
+}
+
+#controllerImageHolder {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.conImg {
+  flex-basis: 50%;
+  aspect-ratio: 1/1;
+  background-size: cover;
+  background-position: center center;
+}
+
+#d1 {
+  background-image: url('../img/dap3.png');
+}
+
+#d2 {
+  background-image: url('../img/dap2.png');
+}
+
+#d3 {
+  background-image: url('../img/dap1.png');
+}
+
+#d4 {
+  background-image: url('../img/dap6.png');
+}
+
+#d5 {
+  background-image: url('../img/dap4.png');
+}
+
+#d6 {
+  background-image: url('../img/dap5.png');
+}
+
+#c1 {
+  background-image: url('../img/controllerFrench.PNG');
+}
+
+#c2 {
+  background-image: url('../img/controllerItsWaffleTime.PNG');
+}
+
+#c3 {
+  background-image: url('../img/controllerLionBlaze.PNG');
+}
+
+#c4 {
+  background-image: url('../img/controllerOstrology.PNG');
+}
+
+#c5 {
+  background-image: url('../img/controllerRenkuu.PNG');
+}
+
+#c6 {
+  background-image: url('../img/controllerThanovic.PNG');
+}
+
+#sunClockImages {
+  background-color: white;
+}
+
+#sunClockImageHolder {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.sunImg {
+  flex-basis: 100%;
+  aspect-ratio: 1/1;
+  background-size: cover;
+  background-position: center center;
+}
+
+#s1 {
+  background-image: url('../img/sunClock.png');
+}
+
+#s2 {
+  background-image: url('../img/sunClock2.jpg');
+}
+
+#s3 {
+  background-image: url('../img/sunClock3.jpg');
+}
+
+#s4 {
+  background-image: url('../img/sunClockSchematic.png');
+}
+
+h1 {
+  font-family: 'Montserrat';
+  font-size: 3em;
+  font-weight: 300;
+  font-style: italic;
+}
+
+p {
+  font-family: 'Montserrat';
+  font-weight: 400;
+  font-size: 1.2em;
+  max-width: 37em;
+}
