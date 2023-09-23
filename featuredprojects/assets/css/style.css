@@ -116,10 +116,12 @@ body {
 
 #d3 {
   background-image: url('../img/dap1.png');
+  flex-basis: 100%;
 }
 
 #d4 {
   background-image: url('../img/dap6.png');
+  flex-basis: 100%;
 }
 
 #d5 {
@@ -136,10 +138,11 @@ body {
 
 #c2 {
   background-image: url('../img/controllerItsWaffleTime.PNG');
+  flex-basis: 100%;
 }
 
 #c3 {
-  background-image: url('../img/controllerLionBlaze.PNG');
+  background-image: url('../img/HammerDraft.png');
 }
 
 #c4 {
@@ -148,6 +151,7 @@ body {
 
 #c5 {
   background-image: url('../img/controllerRenkuu.PNG');
+  flex-basis: 100%;
 }
 
 #c6 {
@@ -176,14 +180,17 @@ body {
 
 #s2 {
   background-image: url('../img/sunClock2.jpg');
+  flex-basis: 33.3%;
 }
 
 #s3 {
   background-image: url('../img/sunClock3.jpg');
+  flex-basis: 33.3%;
 }
 
 #s4 {
   background-image: url('../img/sunClockSchematic.png');
+  flex-basis: 33.3%;
 }
 
 h1 {
