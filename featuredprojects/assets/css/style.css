@@ -60,8 +60,15 @@ body {
   row-gap: 3em;
 }
 
+.featuredItem {
+  display: flex;
+  flex-basis: 100%;
+  flex-wrap: row wrap;
+}
+
 .featuredItemImages {
   flex-basis:35%;
+  background-color: white;
 }
 
 .featuredItemText {
