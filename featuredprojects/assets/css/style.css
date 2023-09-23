@@ -94,6 +94,21 @@ body {
   background-size: contain;
 }
 
+#dmImages {
+  background-color: white;
+}
+
+#dmImageHolder {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.dmImg {
+  flex-basis: 50%;
+  aspect-ratio: 1/1;
+  background-size: cover;
+}
+
 #controllerImageHolder {
   display: flex;
   flex-flow: row wrap;
@@ -156,6 +171,32 @@ body {
 
 #c6 {
   background-image: url('../img/controllerThanovic.PNG');
+}
+
+#dm1 {
+  background-image: url('../img/dm1.JPG');
+  flex-basis: 100%;
+}
+
+#dm2 {
+  background-image: url('../img/dm2.JPG');
+}
+
+#dm3 {
+  background-image: url('../img/dm3.JPG');
+  flex-basis: 100%;
+}
+
+#dm4 {
+  background-image: url('../img/dm4.JPG');
+}
+
+#dm5 {
+  background-image: url('../img/dm5.JPG');
+}
+
+#dm6 {
+  background-image: url('../img/dm6.JPG');
 }
 
 #sunClockImages {
